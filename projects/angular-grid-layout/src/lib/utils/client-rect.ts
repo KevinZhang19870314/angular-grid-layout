@@ -10,20 +10,13 @@
 
 /** Gets a mutable version of an element's bounding `ClientRect`. */
 export function getMutableClientRect(element: Element): ClientRect {
-  const clientRect = element.getBoundingClientRect();
+    const { top, right, bottom, left, width, height, x, y, toJSON } = element.getBoundingClientRect();
 
-  // We need to clone the `clientRect` here, because all the values on it are readonly
-  // and we need to be able to update them. Also we can't use a spread here, because
-  // the values on a `ClientRect` aren't own properties. See:
-  // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect#Notes
-  return {
-    top: clientRect.top,
-    right: clientRect.right,
-    bottom: clientRect.bottom,
-    left: clientRect.left,
-    width: clientRect.width,
-    height: clientRect.height
-  };
+    // We need to clone the `clientRect` here, because all the values on it are readonly
+    // and we need to be able to update them. Also we can't use a spread here, because
+    // the values on a `ClientRect` aren't own properties. See:
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect#Notes
+    return { top, right, bottom, left, width, height, x, y, toJSON };
 }
 
 /**
@@ -32,10 +25,10 @@ export function getMutableClientRect(element: Element): ClientRect {
  * @param x Coordinates along the X axis.
  * @param y Coordinates along the Y axis.
  */
-export function isInsideClientRect(clientRect: ClientRect, x: number, y: number) {
-  const {top, bottom, left, right} = clientRect;
-  return y >= top && y <= bottom && x >= left && x <= right;
-}
+// export function isInsideClientRect(clientRect: ClientRect, x: number, y: number) {
+//   const {top, bottom, left, right} = clientRect;
+//   return y >= top && y <= bottom && x >= left && x <= right;
+// }
 
 /**
  * Updates the top/left positions of a `ClientRect`, as well as their bottom/right counterparts.
@@ -43,13 +36,13 @@ export function isInsideClientRect(clientRect: ClientRect, x: number, y: number)
  * @param top Amount to add to the `top` position.
  * @param left Amount to add to the `left` position.
  */
-export function adjustClientRect(clientRect: ClientRect, top: number, left: number) {
-  clientRect.top += top;
-  clientRect.bottom = clientRect.top + clientRect.height;
+// export function adjustClientRect(clientRect: ClientRect, top: number, left: number) {
+//   clientRect.top += top;
+//   clientRect.bottom = clientRect.top + clientRect.height;
 
-  clientRect.left += left;
-  clientRect.right = clientRect.left + clientRect.width;
-}
+//   clientRect.left += left;
+//   clientRect.right = clientRect.left + clientRect.width;
+// }
 
 /**
  * Checks whether the pointer coordinates are close to a ClientRect.
@@ -58,14 +51,14 @@ export function adjustClientRect(clientRect: ClientRect, top: number, left: numb
  * @param pointerX Coordinates along the X axis.
  * @param pointerY Coordinates along the Y axis.
  */
-export function isPointerNearClientRect(rect: ClientRect,
-                                        threshold: number,
-                                        pointerX: number,
-                                        pointerY: number): boolean {
-  const {top, right, bottom, left, width, height} = rect;
-  const xThreshold = width * threshold;
-  const yThreshold = height * threshold;
+// export function isPointerNearClientRect(rect: ClientRect,
+//                                         threshold: number,
+//                                         pointerX: number,
+//                                         pointerY: number): boolean {
+//   const {top, right, bottom, left, width, height} = rect;
+//   const xThreshold = width * threshold;
+//   const yThreshold = height * threshold;
 
-  return pointerY > top - yThreshold && pointerY < bottom + yThreshold &&
-         pointerX > left - xThreshold && pointerX < right + xThreshold;
-}
+//   return pointerY > top - yThreshold && pointerY < bottom + yThreshold &&
+//          pointerX > left - xThreshold && pointerX < right + xThreshold;
+// }
