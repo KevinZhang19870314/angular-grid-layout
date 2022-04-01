@@ -18,7 +18,9 @@
     "e2e": "ng e2e",
     "copy-readme": "ts-node --project scripts/tsconfig.scripts.json scripts/copy-file.ts README.md dist/angular-grid-layout/README.md",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "build-pkg": "cd ./projects/angular-grid-layout/ && ng-packagr -p ng-package.json",
+    "publish-pkg": "cd ./dist/angular-grid-layout/ && npm publish"
   },
   "private": true,
   "dependencies": {

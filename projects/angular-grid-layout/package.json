@@ -1,5 +1,5 @@
 {
-    "name": "@katoid/angular-grid-layout",
+    "name": "angular-grid-layout-ngx13",
     "description": "Grid Layout with draggable and resizable items for Angular",
     "homepage": "https://github.com/katoid/angular-grid-layout",
     "bugs": {

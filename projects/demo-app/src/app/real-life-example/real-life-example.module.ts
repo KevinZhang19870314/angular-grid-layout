@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { KtdRealLifeExampleComponent } from './real-life-example.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { KtdGridModule } from '@katoid/angular-grid-layout';
+import { KtdGridModule } from 'angular-grid-layout-ngx13';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';

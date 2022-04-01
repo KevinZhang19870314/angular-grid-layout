@@ -20,7 +20,7 @@
             "dom"
         ],
         "paths": {
-            "@katoid/angular-grid-layout": [
+            "angular-grid-layout-ngx13": [
                 "dist/angular-grid-layout"
             ]
         }
